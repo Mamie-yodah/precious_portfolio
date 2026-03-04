@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Engineering Archive — Precious Kanzamba</title>
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #050505;
+      --accent: #00f2ff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a1a1a1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* --- NAV --- */
+    .site-header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 800; text-decoration: none; color: #fff; letter-spacing: 2px; }
+    .nav a { text-decoration: none; color: var(--muted); margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
+    .nav a:hover { color: var(--accent); }
+
+    /* --- PROJECTS GRID --- */
+    .project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; padding: 60px 0; }
+    
+    .project-card { 
+      background: var(--glass); 
+      border: 1px solid var(--border); 
+      border-radius: 32px; 
+      padding: 3rem; 
+      transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 242, 255, 0.05);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    /* --- CASE STUDY ELEMENTS --- */
+    .tech-pill {
+      font-size: 0.7rem; background: rgba(0, 242, 255, 0.1); 
+      color: var(--accent); padding: 5px 12px; border-radius: 50px;
+      border: 1px solid rgba(0, 242, 255, 0.2); font-weight: 700; text-transform: uppercase;
+    }
+
+    .feature-list { list-style: none; margin: 1.5rem 0; }
+    .feature-list li { font-size: 0.9rem; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .feature-list li::before { content: '→'; color: var(--accent); font-weight: bold; }
+
+    .btn-case {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: #fff; text-decoration: none; font-weight: 700;
+      margin-top: 1.5rem; transition: 0.3s;
+    }
+    .btn-case:hover { color: var(--accent); letter-spacing: 1px; }
+
+    @media (max-width: 992px) { .project-grid { grid-template-columns: 1fr; } .project-card { grid-column: span 12 !important; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">P.KANZAMBA</a>
+      <nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <!-- The 'Outshining' Link -->
+  <a href="credentials.html" class="nav-verified">
+    <i class="fa-solid fa-certificate"></i> Credentials
+    <span class="live-dot"></span>
+  </a>
+  <a href="contact.html" class="cta-pill">Contact</a>
+</nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="padding-top: 60px;">
+      <h1 class="gradient-text" style="font-size: 3.5rem;">The Archive.</h1>
+      <p style="color: var(--muted); max-width: 600px;">A documentation of engineered solutions, ranging from frontend architecture to full-stack logic prototypes.</p>
+    </div>
+
+    <div class="project-grid">
+      
+      <!-- PROJECT 1: INFRASTRUCTURE -->
+      <article class="project-card" style="grid-column: span 12;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+          <div>
+            <span class="tech-pill">Full Stack Architecture</span>
+            <h2 style="margin: 1rem 0; font-size: 2rem;">Fee Payment & Registration Infrastructure</h2>
+            <p style="color: var(--muted);">An end-to-end prototype designed to solve institutional payment bottlenecks. Focuses on security, real-time verification, and data integrity.</p>
+            
+            <ul class="feature-list">
+              <li>QR-Synchronized Validation Engine</li>
+              <li>Multi-step logic for secure checkout</li>
+              <li>PostgreSQL-ready data structures</li>
+              <li>Real-time form state management</li>
+            </ul>
+
+            <div style="display: flex; gap: 10px; margin-top: 1rem;">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Django</span>
+              <span class="tech-pill">JavaScript</span>
+            </div>
+            <a href="#" class="btn-case">Explore Repository <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; color: var(--border);">
+            <i class="fas fa-code-branch fa-4x"></i>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: PORTFOLIO -->
+      <article class="project-card" style="grid-column: span 6;">
+        <span class="tech-pill">Interface Engineering</span>
+        <h2 style="margin: 1rem 0;">Modern Portfolio V2 (Aesthetic Engine)</h2>
+        <p style="color: var(--muted); font-size: 0.9rem;">High-performance personal site utilizing glassmorphism, CSS variables, and kinetic typography.</p>
+        <ul class="feature-list">
+          <li>Performance Score: 100/100</li>
+          <li>WCAG Accessibility Compliant</li>
+          <li>Mobile-First Liquid Layout</li>
+        </ul>
+        <a href="index.html" class="btn-case">View Live Deployment <i class="fas fa-arrow-right"></i></a>
+      </article>
+
+      <!-- PROJECT 3: DATA HUB -->
+      <article class="project-card" style="grid-column: span 6;">
+        <span class="tech-pill">Backend Prototype</span>
+        <h2 style="margin: 1rem 0;">Student Data & Registration Hub</h2>
+        <p style="color: var(--muted); font-size: 0.9rem;">Automated system for student onboarding, focusing on complex validation logic and JSON serialization.</p>
+        <ul class="feature-list">
+          <li>Python Backend Validation</li>
+          <li>Dynamic File Upload Handling</li>
+          <li>Clean SQL Architecture</li>
+        </ul>
+        <a href="#" class="btn-case">Read Documentation <i class="fas fa-arrow-right"></i></a>
+      </article>
+
+    </div>
+  </main>
+
+  <section class="container" style="padding-bottom: 80px;">
+    <div class="project-card" style="text-align: center; background: linear-gradient(rgba(0,242,255,0.05), transparent);">
+      <h2 style="margin-bottom: 1rem;">Have a technical challenge?</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">I'm ready to contribute to your engineering team with clean code and modern solutions.</p>
+      <a href="contact.html" class="btn-case" style="background: var(--accent); color: #000; padding: 15px 30px; border-radius: 12px;">Initiate Contact</a>
+    </div>
+  </section>
+
+</body>
+</html>

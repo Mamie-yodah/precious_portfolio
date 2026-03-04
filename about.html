@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Precious Kanzamba</title>
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #050505;
+      --accent: #00f2ff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a1a1a1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* --- NAV --- */
+    .site-header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 800; text-decoration: none; color: #fff; letter-spacing: 2px; }
+    .nav a { text-decoration: none; color: var(--muted); margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
+    .nav a:hover { color: var(--accent); }
+
+    /* --- BENTO CONTENT --- */
+    .about-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; padding: 60px 0; }
+    .bento-card { 
+      background: var(--glass); 
+      border: 1px solid var(--border); 
+      border-radius: 24px; 
+      padding: 2.5rem; 
+      transition: 0.4s;
+    }
+    .bento-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    /* --- ADVANCED TIMELINE --- */
+    .timeline { position: relative; margin-top: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .timeline-item { position: relative; padding-left: 35px; margin-bottom: 2.5rem; }
+    .timeline-dot {
+      position: absolute; left: 0; top: 8px; width: 16px; height: 16px;
+      background: var(--bg); border: 2px solid var(--accent); border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* --- SKILLS BENTO --- */
+    .skills-wrapper { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+    .skill-tag {
+      background: rgba(255,255,255,0.05); padding: 8px 16px; 
+      border-radius: 12px; border: 1px solid var(--border); font-size: 0.85rem;
+    }
+    .skill-tag:hover { background: var(--accent); color: #000; font-weight: 700; }
+
+    .btn-download {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--accent); color: #000; text-decoration: none;
+      padding: 15px; border-radius: 15px; font-weight: 800; margin-top: 20px;
+    }
+
+    @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } .bento-card { grid-column: span 12 !important; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">P.KANZAMBA</a>
+      <nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <!-- The 'Outshining' Link -->
+  <a href="credentials.html" class="nav-verified">
+    <i class="fa-solid fa-certificate"></i> Credentials
+    <span class="live-dot"></span>
+  </a>
+  <a href="contact.html" class="cta-pill">Contact</a>
+</nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="about-grid">
+      
+      <!-- BIO SECTION -->
+      <div class="bento-card" style="grid-column: span 8;">
+        <h1 class="gradient-text" style="font-size: 2.5rem; margin-bottom: 1.5rem;">The Engineer Behind the Code</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;">I am a Software Engineer based in <strong>Harare, Zimbabwe</strong>, dedicated to building digital products that prioritize performance and user experience. Currently pursuing my Diploma in Software Development, I bridge the gap between creative frontend design and structured backend logic.</p>
+        <p style="color: var(--muted);">My development philosophy is simple: write clean, maintainable code that solves real-world problems. I specialize in the modern web stack, focusing on semantic structures and modular CSS architectures.</p>
+      </div>
+
+      <!-- QUICK INFO SIDEBAR -->
+      <div class="bento-card" style="grid-column: span 4;">
+        <h3 style="margin-bottom: 1.5rem;">Quick Stats</h3>
+        <div style="margin-bottom: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+          <span style="color: var(--muted);">Location</span>
+          <span>Harare, ZW</span>
+        </div>
+        <div style="margin-bottom: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+          <span style="color: var(--muted);">Availability</span>
+          <span style="color: #39ff14;">Open to Roles</span>
+        </div>
+        <div style="margin-bottom: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+          <span style="color: var(--muted);">Focus</span>
+          <span>Full-Stack</span>
+        </div>
+        <a href="assets/js/Precious_Kanzamba_CV .pdf" class="btn-download">
+          <i class="fa-solid fa-download"></i> Get CV
+        </a>
+      </div>
+
+      <!-- TIMELINE SECTION -->
+      <div class="bento-card" style="grid-column: span 7;">
+        <h3 class="gradient-text">Academic & Project Timeline</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h4 style="color: var(--accent);">Diploma in Software Engineering</h4>
+            <small style="color: var(--muted);">Ongoing — Core Programming Fundamentals</small>
+            <p style="font-size: 0.85rem; margin-top: 5px;">Specializing in OOP, data structures, and database architecture.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h4>Fee Infrastructure System</h4>
+            <small style="color: var(--muted);">Lead Developer — Full-Stack Prototype</small>
+            <p style="font-size: 0.85rem; margin-top: 5px;">Built a secure QR-synchronized payment flow for educational verification.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h4>Student Registration Hub</h4>
+            <small style="color: var(--muted);">System Architect</small>
+            <p style="font-size: 0.85rem; margin-top: 5px;">Designed a database-ready registration system with advanced Python backend logic.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS BENTO -->
+      <div class="bento-card" style="grid-column: span 5;">
+        <h3 style="margin-bottom: 1rem;">Core Expertise</h3>
+        
+        <p style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-top: 15px;">Frontend</p>
+        <div class="skills-wrapper">
+          <span class="skill-tag">HTML5/CSS3</span>
+          <span class="skill-tag">JavaScript ES6+</span>
+          <span class="skill-tag">Responsive Design</span>
+        </div>
+
+        <p style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-top: 15px;">Backend & Tools</p>
+        <div class="skills-wrapper">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Git/GitHub</span>
+          <span class="skill-tag">SQL Basics</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+
+        <p style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-top: 15px;">Methodology</p>
+        <div class="skills-wrapper">
+          <span class="skill-tag">UI/UX Logic</span>
+          <span class="skill-tag">Accessibility</span>
+          <span class="skill-tag">SEO Mastery</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center;">
+    <p style="color: var(--muted); font-size: 0.8rem;">&copy; 2026 Precious Kanzamba. Engineered for Performance.</p>
+  </footer>
+
+</body>
+</html>
