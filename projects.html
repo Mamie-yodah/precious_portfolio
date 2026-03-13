@@ -72,7 +72,44 @@
     }
     .btn-case:hover { color: var(--accent); letter-spacing: 1px; }
 
-    @media (max-width: 992px) { .project-grid { grid-template-columns: 1fr; } .project-card { grid-column: span 12 !important; } }
+    @media (max-width: 992px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { grid-column: span 12 !important; }
+    }
+
+    /* Mobile navigation + theme toggle */
+    .header-right { display: flex; align-items: center; gap: 1rem; }
+    .header-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .theme-toggle, .mobile-toggle {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: var(--text);
+      padding: 0.4rem 0.7rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .theme-toggle:hover, .mobile-toggle:hover { background: rgba(255, 255, 255, 0.14); }
+    .mobile-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 40px; height: 40px; }
+    .mobile-toggle span { display: block; width: 100%; height: 3px; background: currentColor; border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      .nav { display: none; position: absolute; top: calc(100% + 10px); right: 1.5rem; background: rgba(5, 5, 5, 0.92); padding: 1rem 1.5rem; border-radius: 18px; flex-direction: column; gap: 1rem; width: calc(100% - 3rem); max-width: 320px; }
+      .nav.open { display: flex; }
+      .nav a { margin-left: 0; }
+      .header-inner { position: relative; }
+      .mobile-toggle { display: flex; }
+    }
+
+    /* Theme override (light mode) */
+    html[data-theme="light"] {
+      --bg: #f8fafb;
+      --accent: #0066ff;
+      --glass: rgba(255, 255, 255, 0.8);
+      --border: rgba(31, 41, 55, 0.12);
+      --text: #111827;
+      --muted: #4b5563;
+    }
   </style>
 </head>
 <body>
@@ -80,18 +117,29 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">P.KANZAMBA</a>
-      <nav class="nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="projects.html">Projects</a>
-  <!-- The 'Outshining' Link -->
-  <a href="credentials.html" class="nav-verified">
-    <i class="fa-solid fa-certificate"></i> Credentials
-    <span class="live-dot"></span>
-  </a>
-  <a href="contact.html" class="cta-pill">Contact</a>
-</nav>
 
+      <div class="header-right">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <!-- The 'Outshining' Link -->
+          <a href="credentials.html" class="nav-verified">
+            <i class="fa-solid fa-certificate"></i> Credentials
+            <span class="live-dot"></span>
+          </a>
+          <a href="contact.html" class="cta-pill">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">🌙</button>
+          <button class="mobile-toggle" type="button" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -108,7 +156,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
           <div>
             <span class="tech-pill">Full Stack Architecture</span>
-            <h2 style="margin: 1rem 0; font-size: 2rem;">Fee Payment & Registration Infrastructure</h2>
+            <h2 style="margin: 1rem 0; font-size: 2rem;">Online Fee Payment & Registration System </h2>
             <p style="color: var(--muted);">An end-to-end prototype designed to solve institutional payment bottlenecks. Focuses on security, real-time verification, and data integrity.</p>
             
             <ul class="feature-list">
@@ -123,7 +171,9 @@
               <span class="tech-pill">Django</span>
               <span class="tech-pill">JavaScript</span>
             </div>
-            <a href="#" class="btn-case">Explore Repository <i class="fas fa-arrow-right"></i></a>
+   <a href="https://github.com/Mamie-yodah/Online-feepayment-and-registrationsytem-forTCFL.git" class="btn-case" target="_blank">Explore Repository <i class="fas fa-arrow-right"></i></a>
+
+
           </div>
           <div style="background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; color: var(--border);">
             <i class="fas fa-code-branch fa-4x"></i>
@@ -141,8 +191,11 @@
           <li>WCAG Accessibility Compliant</li>
           <li>Mobile-First Liquid Layout</li>
         </ul>
-        <a href="index.html" class="btn-case">View Live Deployment <i class="fas fa-arrow-right"></i></a>
-      </article>
+       <!-- Fixed Version -->
+<a href="https://precious-portfolio2026.netlify.app" class="btn-case" target="_blank">
+  View Live Deployment <i class="fas fa-arrow-right"></i>
+</a>
+
 
       <!-- PROJECT 3: DATA HUB -->
       <article class="project-card" style="grid-column: span 6;">
@@ -168,5 +221,46 @@
     </div>
   </section>
 
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const nav = document.querySelector('.nav');
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem('theme', theme);
+      if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    function initTheme() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(stored || (prefersDark ? 'dark' : 'light'));
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.dataset.theme;
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    function toggleNav() {
+      if (!nav) return;
+      nav.classList.toggle('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+    });
+
+    themeToggle?.addEventListener('click', toggleTheme);
+    mobileToggle?.addEventListener('click', toggleNav);
+
+    document.addEventListener('click', (event) => {
+      if (!nav || !mobileToggle) return;
+      if (!nav.contains(event.target) && !mobileToggle.contains(event.target)) {
+        nav.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
