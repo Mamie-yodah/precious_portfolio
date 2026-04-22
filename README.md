@@ -1,4 +1,4 @@
-# Precious Kanzamba — Portfolio Website
+# Precious Kanzamba — personal Portfolio Website
 
 This repository contains a clean, modern portfolio website built with **HTML, CSS, and minimal JavaScript**.
 
@@ -39,6 +39,3 @@ Then visit: `http://localhost:8000`
 ## 📦 Notes
 This is intentionally lightweight and does not use any frameworks. All pages are static and can be hosted on GitHub Pages, Netlify, Vercel, or any static website host.
 
----
-
-If you want, I can also help you migrate all styles into a shared CSS file and consolidate the JavaScript into a single `assets/js/site.js` for easier maintenance.
