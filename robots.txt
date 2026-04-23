@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mamie-yodah.github.io/precious_portfolio/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Disallow any admin or private directories if you have them
+# Disallow: /admin/
+# Disallow: /private/
